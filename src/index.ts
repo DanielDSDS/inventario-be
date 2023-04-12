@@ -7,7 +7,7 @@ import compression from 'compression'
 import empresasRouter from './routes/auth.routes';
 import authRoutes from "./routes/auth.routes";
 import companyRoutes from "./routes/company.routes";
-import articleRoutes from "./routes/article.routes";
+import productRoutes from "./routes/product.routes";
 import { DataSource } from "typeorm"
 import { User } from './entities/User';
 import { Company } from './entities/Company';
@@ -35,7 +35,7 @@ SQLDataSource.initialize().then(async (connection) => {
   //Routes
   app.use("/auth", authRoutes);
   app.use("/companies", companyRoutes);
-  app.use("/companies/:id/articles", articleRoutes);
+  app.use("/companies/:id/products", productRoutes);
 
   const server = http.createServer(app)
   server.listen(port, () => {
